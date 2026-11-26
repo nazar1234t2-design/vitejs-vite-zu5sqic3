@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Практична 6. Товари й кошик</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>Магазин: товари й кошик</h1>
+    </div>
+    <div class="summary">
+      <p class="muted">Вартість усіх товарів на складі</p>
+      <p id="total-value" class="summary-value">0 грн</p>
+    </div>
+  </header>
+
+  <div class="filters" id="filters" aria-label="Фільтр за категорією"></div>
+
+  <div class="layout">
+    <main>
+      <div class="grid" id="product-list"></div>
+      <p id="empty-products" class="muted hidden">У цій категорії товарів немає.</p>
+
+      <section class="panel" aria-labelledby="form-title">
+        <h2 id="form-title">Додати новий товар</h2>
+        <form id="product-form" novalidate>
+          <label>Назва
+            <input type="text" id="f-name" placeholder="Наприклад, Ноутбук Asus">
+          </label>
+          <label>Ціна, грн
+            <input type="number" id="f-price" min="0" placeholder="1000">
+          </label>
+          <label>Категорія
+            <input type="text" id="f-category" list="category-options" placeholder="електроніка">
+            <datalist id="category-options"></datalist>
+          </label>
+          <label>Кількість на складі
+            <input type="number" id="f-stock" min="0" placeholder="5">
+          </label>
+          <button type="submit" class="btn btn-primary">Додати товар</button>
+          <p id="form-error" class="error hidden"></p>
+        </form>
+      </section>
+    </main>
+
+    <aside class="panel cart" aria-labelledby="cart-title">
+      <h2 id="cart-title">Кошик <span id="cart-count" class="count">0</span></h2>
+      <p id="cart-message" class="notice hidden"></p>
+      <ul id="cart-list" class="cart-list"></ul>
+      <p id="cart-empty" class="muted">Кошик порожній.</p>
+      <p class="cart-total">Разом: <strong id="cart-total">0 грн</strong></p>
+    </aside>
+  </div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
+
